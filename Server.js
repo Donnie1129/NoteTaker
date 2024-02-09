@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('Develop/public'));
 
+// Serve HTML file for the /notes route
 app.get('/notes', (req, res) => {
     console.log('GET /notes requested');
     fs.readFile('./Develop/db/db.json', 'utf8', (err, data) => {
@@ -23,6 +24,7 @@ app.get('/notes', (req, res) => {
     });
 });
 
+// Handle POST requests to add a new note
 app.post('/notes', (req, res) => {
     console.log('POST /notes requested with body:', req.body);
     const newNote = { ...req.body, id: uuidv4() };
@@ -44,6 +46,7 @@ app.post('/notes', (req, res) => {
     });
 });
 
+// Handle DELETE requests to remove a note by ID
 app.delete('/notes/:id', (req, res) => {
     const noteId = req.params.id;
     console.log(`DELETE /notes/${noteId} requested`);
@@ -65,13 +68,15 @@ app.delete('/notes/:id', (req, res) => {
     });
 });
 
+// Serve HTML file for the /notes route (fallback)
 app.get('/notes', (req, res) => {
-    console.log('GET /notes (fallback) requested');
+    console.log('GET /notes (notes) requested');
     res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes.html'));
 });
 
+// Fallback route for any other path
 app.get('*', (req, res) => {
-    console.log('GET * (fallback) requested');
+    console.log('GET * (homepage) requested');
     res.sendFile(path.join(__dirname, 'Develop', 'public', 'index.html'));
 });
 
