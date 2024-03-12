@@ -1,5 +1,15 @@
 # 11 Express.js: Note Taker
 
+This is my submition for the Note Take challenge. After running npm i and installing dependencies, the user must run "node server.js" in the terminal.
+After doing so, you will have to enter http://localhost:3001/ into the URL to render the page. You will notice a button on the main page that allows the 
+user to get started. After selecting the button, the user will be navigated to the notes page and be given the option to enter a note title and text. After
+filling out said information, the user will have the option to save the note. When this is done, the options in the top right hand corner of the screen will
+dissapear. In order to make them re-appear, the user will have to enter new information in the box to make the buttons render. After a note has been entered,
+it will appear in the section to the left of the page. Simply click on the title to view the note, and select the delete icon to delete the note. 
+
+Lastly to give credit where credit is due, at one point in this assignment I got stuck on an issue and received help from my classmate Tyler Yannes. We went
+over the issue together and he helped me get it resolved so that the page would render correctly.
+
 ## Your Task
 
 Your assignment is to modify starter code to create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
